@@ -39,6 +39,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //Blurred Background
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView()
+        blurEffectView.frame = CGRect(x: 0, y: 0, width: imageBackground.frame.width + 30 , height: imageBackground.frame.height)
+        blurEffectView.center = imageBackground.center
+        self.imageBackground.addSubview(blurEffectView)
+        UIView.animate(withDuration: 5) {
+            blurEffectView.effect = blurEffect
+        }
         // Insert music
         arrOfMusic = MusicFeeder.init().arrOfMusic
         
